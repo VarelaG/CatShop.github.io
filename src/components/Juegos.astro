@@ -1,0 +1,58 @@
+---
+import JuegosCard from "./JuegosCard.astro";
+---
+
+<section class="bg-gray-100 py-12">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">Juguetes para tu Felino</h2>
+        <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Descubre nuestra colección de juguetes diseñados para mantener a tu gato activo, 
+            entretenido y estimulado mentalmente. ¡La diversión nunca termina!
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <JuegosCard 
+                img="../public/images/torre-rascador.jpg"
+                titulo="Torre Rascador Deluxe"
+                precio="$89.99"
+                descripcion="Torre multinivel con postes rascadores, plataformas y juguetes colgantes integrados."
+            />
+            <JuegosCard 
+                img="../public/images/laser-interactivo.jpg"
+                titulo="Láser Interactivo Automático"
+                precio="$29.99"
+                descripcion="Juguete láser automático con patrones aleatorios para horas de diversión."
+            />
+            <JuegosCard 
+                img="../public/images/tunel.jpg"
+                titulo="Túnel Plegable XL"
+                precio="$34.99"
+                descripcion="Túnel de juego con 3 canales y cascabeles integrados. Plegable para fácil almacenamiento."
+            />
+            <JuegosCard 
+                img="../public/images/varita.jpg"
+                titulo="Varita Mágica de Plumas"
+                precio="$14.99"
+                descripcion="Varita telescópica con plumas naturales y cascabeles para juego interactivo."
+            />
+            <JuegosCard 
+                img="../public/images/circuito.jpg"
+                titulo="Circuito de Pelotas LED"
+                precio="$39.99"
+                descripcion="Pista con pelotas luminosas y diferentes niveles para mantener a tu gato entretenido."
+            />
+            <JuegosCard 
+                img="../public/images/raton.jpg"
+                titulo="Ratón Control Remoto"
+                precio="$24.99"
+                descripcion="Ratón a control remoto con movimientos realistas y sonidos atractivos."
+            />
+        </div>
+    </div>
+
+    <style>
+        .bg-gray-100 {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+        }
+    </style>
+</section>

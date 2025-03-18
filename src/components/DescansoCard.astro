@@ -1,0 +1,34 @@
+---
+interface Props {
+    img: string;
+    titulo: string;
+    descripcion?: string;
+    calificacion?: number;
+}
+
+const { img, titulo, descripcion = "Un lugar perfecto para que tu gato descanse", calificacion = 5 } = Astro.props;
+
+const estrellas = "★".repeat(calificacion) + "☆".repeat(5 - calificacion);
+---
+
+<div class="flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg relative overflow-hidden group transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+    <!-- Imagen -->
+    <div class="h-72 overflow-hidden">
+        <img 
+            src={img} 
+            alt={titulo} 
+            class="w-full h-full object-cover rounded-t-2xl transform transition-transform duration-700 group-hover:scale-110" 
+        />
+    </div>
+
+    <!-- Contenido -->
+    <div class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-90 transition-opacity duration-300">
+        <div class="p-6 text-white">
+            <div class="text-yellow-400 text-sm mb-2">{estrellas}</div>
+            <h2 class="text-2xl font-bold mb-2 transform transition-all duration-300 group-hover:translate-x-2">{titulo}</h2>
+            <p class="text-gray-200 text-sm opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                {descripcion}
+            </p>
+        </div>
+    </div>
+</div>

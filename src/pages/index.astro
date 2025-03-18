@@ -1,0 +1,64 @@
+---
+import Hero from '../components/Hero.astro';
+import Layout from '../layouts/Layout.astro';
+import Comida from '../components/Comida.astro';
+import Juegos from '../components/Juegos.astro';
+import Sponsors from '../components/Sponsors.astro';
+import Descanso from '../components/Descanso.astro';
+import Lujos from '../components/Lujos.astro';
+import FAQ from '../components/FAQ.astro';
+import Footer from '../components/Footer.astro';
+import Nav from '../components/Nav.astro';
+
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+    <Nav/> 
+    <Hero />
+    <div  id="comida" class="scroll-transition">
+        <Comida />
+    </div>
+    <div id="juegos" class="scroll-transition">
+        <Juegos />
+    </div>
+    <div id="sponsors" class="scroll-transition">
+        <Sponsors />
+    </div>
+    <div id="descanso" class="scroll-transition">
+        <Descanso />
+    </div>
+    <div id="lujos" class="scroll-transition">
+        <Lujos />
+    </div>
+    <div id="faq" class="scroll-transition">
+        <FAQ />
+    </div>
+    <div id="footer" class="scroll-transition">
+        <Footer />
+    </div>
+</Layout>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const elements = document.querySelectorAll(".scroll-transition");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("scroll-transition-visible");
+                        observer.unobserve(entry.target); // Deja de observar una vez activado
+                    }
+                });
+            },
+            { threshold: 0.1 } // Activa la animación cuando el 10% del elemento sea visible
+        );
+
+        elements.forEach((element) => observer.observe(element));
+    });
+</script>

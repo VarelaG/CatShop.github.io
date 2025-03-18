@@ -1,0 +1,88 @@
+---
+import DescansoCard from "../components/DescansoCard.astro"; 
+
+
+---
+<section class="bg-gradient-to-br from-purple-100 to-pink-50 py-16">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Lugares de Descanso</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                Descubre espacios acogedores donde tu felino podrá relajarse y sentirse como en casa. 
+                Cada rincón está diseñado pensando en su comodidad y bienestar.
+            </p>
+        </div>
+
+        <div class="w-full max-w-[95vw] mx-auto overflow-x-auto scrollbar-hide">
+            <div class="flex space-x-6 px-4 py-4 min-w-max">
+                <DescansoCard 
+                    img="../public/images/cama-gato-1.png" 
+                    titulo="Nido Acogedor Premium"
+                    descripcion="Cama suave y mullida con bordes elevados para mayor seguridad y confort"
+                    calificacion={5}
+                />
+                <DescansoCard 
+                    img="../public/images/cama-gato-2.jpg" 
+                    titulo="Hamaca Solar Deluxe"
+                    descripcion="Perfecta para ventanas, permite a tu gato disfrutar del sol mientras descansa"
+                    calificacion={4}
+                />
+                <DescansoCard 
+                    img="../public/images/cama-gato-3.jpg" 
+                    titulo="Cueva Felina Zen"
+                    descripcion="Un refugio privado y acogedor para gatos que aman la tranquilidad"
+                    calificacion={5}
+                />
+                <DescansoCard 
+                    img="../public/images/cama-gato-1.png" 
+                    titulo="Cojín Ortopédico Plus"
+                    descripcion="Diseñado para gatos mayores, brinda soporte extra y máxima comodidad"
+                    calificacion={4}
+                />
+                <DescansoCard 
+                    img="../public/images/cama-gato-2.jpg" 
+                    titulo="Nido Térmico Comfort"
+                    descripcion="Mantiene una temperatura agradable en cualquier época del año"
+                    calificacion={5}
+                />
+                <DescansoCard 
+                    img="../public/images/cama-gato-3.jpg" 
+                    titulo="Cama Elevada Luxury"
+                    descripcion="Perfecta para gatos que prefieren descansar en las alturas"
+                    calificacion={4}
+                />
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .scroll-container {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scroll-item {
+    scroll-snap-align: start;
+}
+
+.scroll-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 50px;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    pointer-events: none;
+}
+
+        
+    </style>
+</section>

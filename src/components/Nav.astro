@@ -1,0 +1,100 @@
+---
+---
+
+<nav class="relative">
+    <section class="bg-white p-3 flex items-center justify-between fixed top-0 w-full z-20">
+
+      <div class="flex items-center">
+          <img src="/logo/pawprint.png" alt="logo" class="max-w-6">
+      </div>
+      <div class="flex space-x-4">
+          <button data-cart-toggle type="button" class="focus:outline-none">
+              <img src="/logo/shopping-bag.png" alt="bag" class="max-w-6 cursor-pointer">
+          </button>
+          <button data-menu-toggle type="button" class="focus:outline-none">
+              <img src="/logo/menu.png" alt="menu" class="max-w-6 cursor-pointer">
+          </button>
+      </div>
+  </section>
+
+  <div id="cart" class="hidden bg-gray-100 p-4 absolute top-16 right-4 border rounded shadow-lg z-50">
+      <h2 class="text-lg font-bold mb-2">Carrito</h2>
+      <p class="text-sm text-gray-700">Tu carrito está vacío.</p>
+  </div>
+
+  <div id="menu" class="hidden bg-gray-100 p-4 absolute top-16 right-4 border rounded shadow-lg z-50">
+      <h2 class="text-lg font-bold mb-2">Menú</h2>
+      <ul class="space-y-2">
+          <li><a href="#nosotros" class="text-blue-500 hover:underline">Nosotros</a></li>
+          <li><a href="#juguetes" class="text-blue-500 hover:underline">Juguetes</a></li>
+          <li><a href="#descanso" class="text-blue-500 hover:underline">Descanso</a></li>
+      </ul>
+  </div>
+</nav>
+
+<script>
+  function toggleCart() {
+    const cart = document.getElementById('cart');
+    if (cart) {
+      cart.classList.toggle('hidden');
+      // Cerrar el menú si está abierto
+      const menu = document.getElementById('menu');
+      if (menu && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+      }
+    }
+  }
+
+  function toggleMenu() {
+    const menu = document.getElementById('menu');
+    if (menu) {
+      menu.classList.toggle('hidden');
+      // Cerrar el carrito si está abierto
+      const cart = document.getElementById('cart');
+      if (cart && !cart.classList.contains('hidden')) {
+        cart.classList.add('hidden');
+      }
+    }
+  }
+
+  // Esperar a que el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    // Agregar event listeners a los botones
+    const cartButton = document.querySelector('[data-cart-toggle]');
+    const menuButton = document.querySelector('[data-menu-toggle]');
+
+    if (cartButton) {
+      cartButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleCart();
+      });
+    }
+
+    if (menuButton) {
+      menuButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+      });
+    }
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      const cart = document.getElementById('cart');
+      const menu = document.getElementById('menu');
+      const cartButton = document.querySelector('[data-cart-toggle]');
+      const menuButton = document.querySelector('[data-menu-toggle]');
+
+      if (cart && !cart.classList.contains('hidden') && 
+          !cart.contains(e.target) && 
+          !cartButton.contains(e.target)) {
+        cart.classList.add('hidden');
+      }
+
+      if (menu && !menu.classList.contains('hidden') && 
+          !menu.contains(e.target) && 
+          !menuButton.contains(e.target)) {
+        menu.classList.add('hidden');
+      }
+    });
+  });
+</script>

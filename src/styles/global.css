@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+    --color-fondo: #202018;
+    --color-corbata: #3d2717;
+    --color-silla: #29160f;
+    --color-bigotes: #9d8d6d;
+    --color-primary-ligth: #1ECEFF;
+    --color-secundary: #000101;
+    --color-blue: #210185;
+    --color-blue-ligth: #0463FC;
+    --color-celeste: #01F3FF;
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --color-red-50: oklch(0.971 0.013 17.38);
+    --color-red-100: oklch(0.936 0.032 17.717);
+    --color-red-200: oklch(0.885 0.062 18.334);
+    /* ... */
+    --shadow-2xs: 0 1px rgb(0 0 0 / 0.05);
+    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    /* ... */
+    --font-special: 'MiFuente', sans-serif;
+
+  }
+ *{
+  scroll-behavior: smooth;
+ }
+  @font-face {
+    font-family: 'MiFuente';
+    src:url('../../public/fonts/ttf/black-ops-one-cyrillic-ext-400-normal.ttf') format('truetype');
+    font-weight: normal; /* O bold si tienes variantes */
+    font-style: normal;  /* O italic si tienes variantes */
+  }
+ 
+  body{
+    font-family: Lilita One;
+  }
+
+  .lilita-one-regular {
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .scroll-transition {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-transition-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.grid-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave */
+}
+
+.grid-item:hover {
+  transform: scale(1.05); /* Escalado ligero */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+
+
+  
